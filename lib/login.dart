@@ -158,7 +158,7 @@ class _LoginState extends State<Login> {
                               icon: Icon(Icons.lock, color: Color(0xfffe0000)),
                               controller: passwordTextEditingController,
                               label: 'Password',
-                              isObscure: false,
+                              isObscure: true,
                             ),
 
                             // Forgot Password Button
@@ -218,7 +218,12 @@ class _LoginState extends State<Login> {
                                 topRight: Radius.circular(30)),
                             color: Color(0xffff0100)),
                         child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => HomePage()));
+                            },
                             child: const Text(
                               "LOGIN",
                               style: TextStyle(color: Colors.white),

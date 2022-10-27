@@ -23,26 +23,31 @@ class CustomButton extends StatelessWidget {
   }
 }
 
-class CustomContainer extends StatelessWidget {
+class CustomContainer extends StatefulWidget {
   final Widget widget;
   final double height;
   const CustomContainer({Key? key, required this.widget, required this.height})
       : super(key: key);
 
   @override
+  State<CustomContainer> createState() => _CustomContainerState();
+}
+
+class _CustomContainerState extends State<CustomContainer> {
+  @override
   Widget build(BuildContext context) {
     return Container(
-      height: height,
+      height: widget.height,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         color: Colors.white,
       ),
-      child: widget,
+      child: widget.widget,
     );
   }
 }
 
-class CustomTextField extends StatelessWidget {
+class CustomTextField extends StatefulWidget {
   final String HelperText;
   final Widget icon;
   final TextEditingController controller;
@@ -59,18 +64,22 @@ class CustomTextField extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+      margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
       child: TextFormField(
-        obscureText: isObscure,
-        controller: controller,
+        obscureText: widget.isObscure,
+        controller: widget.controller,
         decoration: InputDecoration(
-          labelText: label,
           labelStyle:
-              TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-          hintText: HelperText,
-          suffixIcon: icon,
+              const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          hintText: widget.HelperText,
+          suffixIcon: widget.icon,
         ),
       ),
     );
