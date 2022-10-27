@@ -31,6 +31,19 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
+    void loginAndAuthenticateUser(BuildContext context) async {
+      User? firebaseUser = (await _firebaseAuth
+              .signInWithEmailAndPassword(
+                  email: emailTextEditingcontroller.text,
+                  password: passwordTextEditingController.text)
+              .catchError((errMsg) {
+        Fluttertoast.showToast(msg: 'Error: ' + errMsg.toString());
+      }))
+          .user;
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => HomePage()));
+    }
+
     Firebase.initializeApp();
 
     void registerNewUser(BuildContext context) async {
@@ -222,10 +235,7 @@ class _LoginState extends State<Login> {
                             color: Color(0xffff0100)),
                         child: TextButton(
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => HomePage()));
+                              loginAndAuthenticateUser(context);
                             },
                             child: const Text(
                               "LOGIN",
