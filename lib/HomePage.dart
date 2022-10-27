@@ -66,8 +66,9 @@ class HomePage extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(20),
       decoration:
-          BoxDecoration(borderRadius: BorderRadius.circular(20), boxShadow: [
-        BoxShadow(blurStyle: BlurStyle.normal, blurRadius: 2.0),
+          BoxDecoration(borderRadius: BorderRadius.circular(10), boxShadow: [
+        BoxShadow(
+            blurStyle: BlurStyle.normal, blurRadius: 2.0, color: Colors.grey),
       ]),
       child: FutureBuilder<List<Article>>(
           future: _newsAPI.getTopHeadlines(country: "us"),

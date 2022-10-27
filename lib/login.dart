@@ -372,14 +372,15 @@ class _LoginState extends State<Login> {
               child: TextButton(
                   onPressed: () {
                     if (nameTextEditingController.text.isEmpty) {
-                      Fluttertoast.showToast(msg: "enter the name");
-                    } else if (emailTextEditingcontroller.text.contains("@")) {
+                      Fluttertoast.showToast(msg: "Enter the name");
+                    } else if (!emailTextEditingcontroller.text.contains("@")) {
+                    } else if (!emailTextEditingcontroller.text.contains("@")) {
                       Fluttertoast.showToast(msg: "Enter email correctly");
                     } else if (phoneTextEditingController.text.isEmpty) {
-                      Fluttertoast.showToast(msg: "enter the phone number");
+                      Fluttertoast.showToast(msg: "Enter the phone number");
                     } else if (passwordTextEditingController.text.length < 6) {
                       Fluttertoast.showToast(
-                          msg: "password must be atleast 6 characters");
+                          msg: "Password must be at least 6 characters");
                     } else {
                       registerNewUser(context);
                       getUser(
