@@ -25,8 +25,8 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   bool isLogin = false;
   bool agree = false;
-  Color colors = Colors.white; // used for Login Button
-  Color colors2 = Color(0xfffe0000); // used for signup Button
+  Color colors2 = Colors.white; // used for Signup Button
+  Color colors = Color(0xfffe0000); // used for Login Button
   @override
   Widget build(BuildContext context) {
     final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -109,7 +109,7 @@ class _LoginState extends State<Login> {
                       widget: TextButton(
                           onPressed: () {
                             setState(() {
-                              isLogin = true;
+                              isLogin = false;
                               colors = const Color(0xfffe0000);
                               colors2 = Colors.white;
                             });
@@ -125,7 +125,7 @@ class _LoginState extends State<Login> {
                         widget: TextButton(
                             onPressed: () {
                               setState(() {
-                                isLogin = false;
+                                isLogin = true;
                                 colors2 = Color(0xfffe0000);
                                 colors = Colors.white;
                               });
@@ -137,7 +137,7 @@ class _LoginState extends State<Login> {
                   ]),
             ),
             SizedBox(height: 10),
-            isLogin == true
+            isLogin == false
                 ? Column(
                     children: [
                       CustomContainer(
@@ -152,7 +152,7 @@ class _LoginState extends State<Login> {
                                 "SignIn into your \n Account",
                                 style: TextStyle(
                                     fontSize: 25,
-                                    color: Colors.amber,
+                                    color: Colors.red,
                                     fontWeight: FontWeight.bold),
                               ),
                             ),

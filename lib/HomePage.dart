@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news/login.dart';
 import 'package:news_api_flutter_package/model/article.dart';
 import 'package:news_api_flutter_package/model/error.dart';
 import 'package:news_api_flutter_package/model/source.dart';
@@ -26,14 +27,22 @@ class HomePage extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar: _buildAppBar(),
+        appBar: _buildAppBar(context),
         body: _buildBody(),
       ),
     );
   }
 
-  AppBar _buildAppBar() {
+  AppBar _buildAppBar(context) {
     return AppBar(
+      actions: [
+        IconButton(
+            onPressed: () {
+              Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (context) => Login()));
+            },
+            icon: Icon(Icons.logout))
+      ],
       title: TextFormField(
           decoration: const InputDecoration(
               hintText: "Search in feed",
