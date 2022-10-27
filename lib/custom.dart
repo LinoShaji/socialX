@@ -52,7 +52,7 @@ class CustomTextField extends StatefulWidget {
   final Widget icon;
   final TextEditingController controller;
   final String label;
-  bool isObscure = true;
+  final bool isObscure;
 
   CustomTextField({
     Key? key,
@@ -72,7 +72,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
-      child: TextFormField(
+      child: TextField(
         obscureText: widget.isObscure,
         controller: widget.controller,
         decoration: InputDecoration(

@@ -7,6 +7,14 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:news/HomePage.dart';
 import 'package:news/custom.dart';
 
+final TextEditingController nameTextEditingController = TextEditingController();
+final TextEditingController emailTextEditingcontroller =
+    TextEditingController();
+final TextEditingController passwordTextEditingController =
+    TextEditingController();
+final TextEditingController phoneTextEditingController =
+    TextEditingController();
+
 class Login extends StatefulWidget {
   Login({Key? key}) : super(key: key);
 
@@ -21,11 +29,6 @@ class _LoginState extends State<Login> {
   Color colors2 = Color(0xfffe0000); // used for signup Button
   @override
   Widget build(BuildContext context) {
-    TextEditingController emailTextEditingcontroller = TextEditingController();
-    TextEditingController passwordTextEditingController =
-        TextEditingController();
-    TextEditingController phoneTextEditingController = TextEditingController();
-    TextEditingController nameTextEditingController = TextEditingController();
     final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
     Firebase.initializeApp();
