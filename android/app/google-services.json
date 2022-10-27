@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "880609191831",
+    "project_id": "socialx-752d1",
+    "storage_bucket": "socialx-752d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880609191831:android:3a5c0eaee5ff0a21ba46d2",
+        "android_client_info": {
+          "package_name": "com.example.news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "880609191831-qmdfkuiq5b1mnej8ocpja4t1bnk2p8jf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANwejFqtBSKgRkbEV-1NJNAnJZ8diIVPM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "880609191831-qmdfkuiq5b1mnej8ocpja4t1bnk2p8jf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

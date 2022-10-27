@@ -25,11 +25,14 @@ class CustomButton extends StatelessWidget {
 
 class CustomContainer extends StatelessWidget {
   final Widget widget;
-  const CustomContainer({Key? key, required this.widget}) : super(key: key);
+  final double height;
+  const CustomContainer({Key? key, required this.widget, required this.height})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: height,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         color: Colors.white,
@@ -44,20 +47,23 @@ class CustomTextField extends StatelessWidget {
   final Widget icon;
   final TextEditingController controller;
   final String label;
+  bool isObscure = true;
 
-  const CustomTextField({
+  CustomTextField({
     Key? key,
     required this.HelperText,
     required this.icon,
     required this.controller,
     required this.label,
+    required this.isObscure,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.only(left: 20, right: 20, top: 20),
       child: TextFormField(
+        obscureText: isObscure,
         controller: controller,
         decoration: InputDecoration(
           labelText: label,
